@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="admin" />
+
+	<script>
+    
+    function factorial(n) {
+
+        return (n==1) ? n : n * factorial(n-1);
+    }
+
+    function FindRows(var1,var2) {
+    	var q = 0;
+    	var str = ""; var sint = "";
+    	var start = new Date;
+    	for (var dip = var1; dip <= var2; dip++) {
+    		q = 0;
+    		sint = dip.toString();
+    		mass = new Array();
+    		for (var i = 0; i < sint.length; i++) {
+    			q += (sint.substr(i, 1) == "0") ? 1 : (sint.substr(i, 1) == "1") ? 1 :(sint.substr(i, 1) == "2") ? 2 : factorial(sint.substr(i, 1));
+    			mass[i] = sint.substr(i, 1);
+    		}
+    		if (q == dip) {
+    			str = "";
+    			for (var i = 0; i < sint.length; i++) {
+    				if (i < sint.length - 1)
+    					str += mass[i].toString() + "! + ";
+    				else
+    					str += mass[i].toString() + "! = ";
+    			}
+    			console.log(str + sint);
+    		}
+    	}
+    	var end = new Date;
+    
+    	console.log("Время выполнения: " + (end-start) +"мс");
+        }
+        
+        var a = +prompt ('Введите число, начало диапозона','');
+        var b = +prompt ('Введите число, конец диапозона','');
+        alert('Результаты отображены в консоли');
+        FindRows(a,b);
+     </script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>
